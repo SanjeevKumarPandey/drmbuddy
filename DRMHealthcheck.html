@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<Author: Sanjeev Kumar Pandey>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="./drmstyle.css" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div>
+            <h1 style="color:#FFFFFF;">DRM Health Checkup<em style="font-weight:100;"> v. Beta</em></h1>
+        </div>
+    </header>
+<div id="widgets" style="width: auto; border: 0px solid black; border-radius: 5px; padding: 15px;margin: 25px 0px 0px 10%">
+    <div class="squares" id="license_svr">
+        <h5>License Server</h5>
+        <h1 id="License"></h1>
+
+    </div>
+    <div class="squares" id="indiv_svr">
+        <h5>Individualization Server</h5>
+        <h1 id="Indiv"></h1>
+    </div>
+    <div class="squares" id="crl_svr">
+        <h5>CRL Server</h5>
+        <h1 id="CRL"></h1>
+
+    </div>
+</div>
+<button id="checkupbtn" onclick="setUrl()">Check Now</button><br/>
+<div id="box" style="background:#98bf21;height:50px;width:50px;margin:6px;"></div>
+<hr style='margin-top:25px; width:100px;'>
+<div class='foot'>
+    <i class='info'>Developed by & &copy; Sanjeev Pandey</i><br />
+    <i class='info'><hr>
+        <strong>DRMBuddy v Beta</strong><br />
+        <span style='font-style: italic;'>A DRM Servers Health Checker</span><br />
+    </i>
+</div>
+<script src="./drmbuddy.js"></script>
+</body>
+</html>
