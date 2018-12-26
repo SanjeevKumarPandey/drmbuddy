@@ -26,7 +26,7 @@ def buildAuthHeader(refid):
 
 	public_key = pub
 	private_key = priv
-	print 'HEADER START\n\n'
+	print ('HEADER START\n\n')
 
 	uuidvalue = str(uuid4())
 

@@ -2,8 +2,8 @@ body {
     font-family: "Source Sans Pro", "Halvetica", sans-serif;
     font-weight: 500;
     font-size: 14px;
-    background-position: center !important;
-	/*background: url("");*/
+    background-position: right !important;
+	background: url("./primetime.features-overview.ad-revenue.loupes.472x383.png.img.png");
 	background-repeat: no-repeat;
 
 }
@@ -26,6 +26,10 @@ button {
     font-weight: 600;
 }
 
+button:hover{
+    opacity: 0.5;
+}
+
 button:focus, input:focus { outline: none; }
 button:active { background-color: #FFF006; color: #fff; }
 
@@ -46,7 +50,8 @@ td, th {
 
 #widgets {
     /* box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12); */
-    z-index: 3;
+    /* z-index: 3; */
+    /*AWER-Ngertits*/
 }
 
 .bad {
@@ -55,7 +60,7 @@ td, th {
 }
 
 .ok {
-    background-color: green;
+    background-color: #FFFFFF;
     color:#000000;
 }
 
@@ -74,6 +79,33 @@ td, th {
     border-radius: 5px;
     border: 0px solid black;
 }
+
+/*-------------------+
+TOOLTIP
+--------------------*/
+ 
+  .squares .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: #fffae6;
+    color: #000000;
+    text-align: center;
+    border-radius: 30px;
+    padding: 5px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    border: 1px dashed #3700B3;
+  }
+  
+  .squares:hover .tooltiptext {
+    visibility: visible;
+  }  
+
+/*-------------------+
+FOOTER
+---------------------*/
 
 .foot {
 
