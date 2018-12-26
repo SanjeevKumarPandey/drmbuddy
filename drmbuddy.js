@@ -16,6 +16,7 @@ $(function() {
         var _msg = JSON.parse(getMsg);
         console.log('cookie found\n');
         console.log(currStatus);
+        console.log(getMsg);
         for(i=0; i<3; i++){
             if (currStatus[i]==true){
                 if(i===0){

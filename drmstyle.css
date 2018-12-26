@@ -3,7 +3,7 @@ body {
     font-weight: 500;
     font-size: 14px;
     background-position: right !important;
-	background: url("./primetime.features-overview.ad-revenue.loupes.472x383.png.img.png");
+	/* background: url("./features-overview.472x383.png.img.png"); */
 	background-repeat: no-repeat;
 
 }
@@ -48,10 +48,8 @@ td, th {
     background-color: #afafaf;
 } */
 
-#widgets {
-    /* box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12); */
-    /* z-index: 3; */
-    /*AWER-Ngertits*/
+#box {
+    background:#98bf21;height:10px;width:5px;margin:6px;
 }
 
 .bad {
@@ -72,7 +70,7 @@ td, th {
     width: 150px;
     height: 150px;
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-    z-index: 3;
+    /* z-index: 3; */
     display: inline-block;
     margin: 20px;
     padding: 5px;
@@ -94,8 +92,8 @@ TOOLTIP
     padding: 5px;
   
     /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
+    position: relative;
+    z-index: 3;
     border: 1px dashed #3700B3;
   }
   

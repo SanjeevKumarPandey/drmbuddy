@@ -1,43 +1,61 @@
 <!DOCTYPE html>
-<Author: Sanjeev Kumar Pandey>
+<Author Sanjeev Kumar Pandey></Author>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href="./drmstyle.css" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">    
     <header class="app-header">
         <div>
             <h1 style="color:#FFFFFF;">DRM Health Checkup<em style="font-weight:100;"> v. Beta</em></h1>
         </div>
     </header>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">    
 <div id="widgets" style="width: auto; border: 0px solid black; border-radius: 5px; padding: 15px;margin: 25px 0px 0px 10%">
-    
-    <div class="squares" id="license_svr">
-        <h5>License Server</h5>
-        <h1 id="License"></h1>
-        <span class="tooltiptext">http://access.adobeprimetime.com/flashaccessserver/axs_prod/flashaccess/license/v6</span>
-    </div>
-    <div class="squares" id="indiv_svr">
-        <h5>Individualization Server</h5>
-        <h1 id="Indiv"></h1>
-        <span class="tooltiptext">http://individualization.adobe.com/flashaccess/i15n/v5</span>
-    </div>
-    <div class="squares" id="crl_svr">
-        <h5>CRL Server</h5>
-        <h1 id="CRL"></h1>
-        <span class="tooltiptext">http://crl2.adobe.com/Adobe/FlashAccessIndividualizationCA.crl</span>
+    <div  class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="squares" id="license_svr">
+                        <h5>License Server</h5>
+                        <span id="License"></span>
+                        <span class="tooltiptext">http://access.adobeprimetime.com/flashaccessserver/axs_prod/flashaccess/license/v6</span>
+                </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="squares" id="indiv_svr">
+                        <h5>Individualization Server</h5>
+                        <span id="Indiv"></span>
+                        <span class="tooltiptext">http://individualization.adobe.com/flashaccess/i15n/v5</span>
+                </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="squares" id="crl_svr">
+                        <h5>CRL Server</h5>
+                        <span id="CRL"></span>
+                        <span class="tooltiptext">http://crl2.adobe.com/Adobe/FlashAccessIndividualizationCA.crl</span>
+                </div>
+        </div>
     </div>
 </div>
-<button id="checkupbtn" onclick="setUrl()">Check Now</button><br/>
-<div id="box" style="background:#98bf21;height:10px;width:5px;margin:6px;"></div>
+</div>
+</div>
+<button id="checkupbtn" onclick="setUrl()">Check Now</button>
+<div id="box"></div>
 <hr style='margin-top:25px; width:100px;'>
 <div class='foot'>
-    <i class='info'>Developed by & &copy; Sanjeev Pandey</i><br />
+    <i class='info'>Developed by & &copy; Sanjeev Pandey</i>
     <i class='info'><hr>
-        <strong>DRMBuddy v Beta</strong><br />
-        <span style='font-style: italic;'>A DRM Servers Health Checker</span><br />
+        <strong>DRMBuddy v Beta</strong>
+        <span style='font-style: italic;'>A DRM Servers Health Checker</span>
     </i>
+</div>
 </div>
 <script src="./drmbuddy.js"></script>
 </body>
