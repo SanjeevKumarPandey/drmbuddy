@@ -1,29 +1,48 @@
 body {
-    font-family: "Source Sans Pro", "Halvetica", sans-serif;
-    font-weight: 500;
+    font-family: "Segoe UI", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
     font-size: 14px;
     background-position: right !important;
 	/* background: url("./features-overview.472x383.png.img.png"); */
 	background-repeat: no-repeat;
+}
 
+html, body {
+    height: 100%;
 }
 
 p {
 text-align: center;
 }
 
+.left {
+
+    float: left;
+
+}
+
+.right {
+
+    float: right;
+
+}
+
+.wrapper {
+    text-align: center;
+}
+
 button {
     text-transform: uppercase;
-    display: block;
-    margin: 10px auto 0 auto;
+    margin-top: 80px;
     border: none;
-    font-size: 1em;
+    font-size: 1.3em;
     padding: 5px;
-    border-radius: 2px;
-    width: 10%;
+    border-radius: 5px;
+    width: 30%;
+    height: 55px;
     color: #111;
     background-color: #03DAC6;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 button:hover{
@@ -62,20 +81,60 @@ td, th {
     color:#000000;
 }
 
+.ok-content {
+    font-weight:700; 
+    font-size:80px;
+}
+
+.bad-content {
+    font-weight:700; 
+    font-size:80px;
+    text-decoration: line-through;
+}
+
+.c404 {
+    font-weight:700; 
+    font-size:80px;
+}
+
 .app-header {
     background-color: #3700B3;
 }
 
+#widgets {
+    width: auto; 
+    border: 0px solid black; 
+    border-radius: 5px; 
+    padding: 15px;
+    margin-top: 25px;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+}
+
 .squares {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
     /* z-index: 3; */
     display: inline-block;
-    margin: 20px;
+    margin: 5px;
     padding: 5px;
     border-radius: 5px;
     border: 0px solid black;
+}
+
+.log {
+    background-color: none;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.log #timestamp {
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
 }
 
 /*-------------------+
@@ -110,7 +169,7 @@ FOOTER
 position: relative;
 width: 200px;
 height: 100px;
-padding: 15px 25px 0 25px;
+padding: 10px 15px 0 15px;
 margin: 60 auto;
 cursor: default;
 

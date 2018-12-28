@@ -1,6 +1,7 @@
 var statuses = [];
 var __msg = "";
 var msg = [];
+const months = ["JAN", "FEB", "MAR", "APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 
 //index 0 - license svr 
 //index 1 - indiv svr
@@ -20,38 +21,81 @@ $(function() {
         for(i=0; i<3; i++){
             if (currStatus[i]==true){
                 if(i===0){
-                    document.getElementById('License').innerHTML= `<span style="font-weight:700; font-size:80px;">${_msg[0]}</span>`;
+                    document.getElementById('License').innerHTML= `${_msg[0]}`;
+                    document.getElementById('License').classList.remove('bad-content');
+                    document.getElementById('License').classList.remove('c404');
+                    document.getElementById('License').classList.add('ok-content');
                     document.getElementById('license_svr').classList.remove("bad");
                     document.getElementById('license_svr').classList.add("ok");
                 } else if(i===1){
-                    document.getElementById('Indiv').innerHTML= `<span style="font-weight:700; font-size:80px;">${_msg[1]}</span>`;
+                    document.getElementById('Indiv').innerHTML= `${_msg[1]}`;
+                    document.getElementById('Indiv').classList.remove('bad-content');
+                    document.getElementById('Indiv').classList.remove('c404');
+                    document.getElementById('Indiv').classList.add('ok-content');
                     document.getElementById('indiv_svr').classList.remove("bad");
                     document.getElementById('indiv_svr').classList.add("ok");
                 } else if(i===2){
-                    document.getElementById('CRL').innerHTML= `<span style="font-weight:700; font-size:80px;">${_msg[2]}</span>`;
+                    document.getElementById('CRL').innerHTML= `${_msg[2]}`;
+                    document.getElementById('CRL').classList.remove('bad-content');
+                    document.getElementById('CRL').classList.remove('c404');
+                    document.getElementById('CRL').classList.add('ok-content');
                     document.getElementById('crl_svr').classList.remove("bad");
                     document.getElementById('crl_svr').classList.add("ok");
                 }
 
-            } else if (currStatus[i]==false){
+            } else if ((currStatus[i]==false) && (_msg[i] !== "404")){
                 if(i===0){
                     document.getElementById('license_svr').classList.remove("ok");
                     document.getElementById('license_svr').classList.add("bad");
-                    document.getElementById('License').innerHTML= `<span style="font-weight:600; font-size:35px;">${_msg[0]}</span>`;
+                    document.getElementById('License').innerHTML= `${_msg[0]}`;
+                    document.getElementById('License').classList.remove('ok-content');
+                    document.getElementById('License').classList.remove('c404');
+                    document.getElementById('License').classList.add('bad-content');
                 } else if(i===1){
                     document.getElementById('indiv_svr').classList.remove("ok");
                     document.getElementById('indiv_svr').classList.add("bad");
-                    document.getElementById('Indiv').innerHTML= `<span style="font-weight:600; font-size:35px;">${_msg[1]}</span>`;
+                    document.getElementById('Indiv').innerHTML= `${_msg[1]}`;
+                    document.getElementById('Indiv').classList.remove('ok-content');
+                    document.getElementById('Indiv').classList.remove('c404');
+                    document.getElementById('Indiv').classList.add('bad-content');
                 } else if(i===2){
                     document.getElementById('crl_svr').classList.remove("ok");
                     document.getElementById('crl_svr').classList.add("bad");
-                    document.getElementById('CRL').innerHTML= `<span style="font-weight:600; font-size:35px;">${_msg[2]}</span>`;
+                    document.getElementById('CRL').innerHTML= `${_msg[2]}`;
+                    document.getElementById('CRL').classList.remove('ok-content');
+                    document.getElementById('CRL').classList.remove('c404');
+                    document.getElementById('CRL').classList.add('bad-content');
+                }
+            } else if ((currStatus[i]==false) && (_msg[i] == "404")){
+                if(i===0){
+                    document.getElementById('license_svr').classList.remove("ok");
+                    document.getElementById('license_svr').classList.add("bad");
+                    document.getElementById('License').innerHTML= `${_msg[0]}`;
+                    document.getElementById('License').classList.remove('ok-content');
+                    document.getElementById('License').classList.remove('bad-content');
+                    document.getElementById('License').classList.add('c404');
+                } else if(i===1){
+                    document.getElementById('indiv_svr').classList.remove("ok");
+                    document.getElementById('indiv_svr').classList.add("bad");
+                    document.getElementById('Indiv').innerHTML= `${_msg[1]}`;
+                    document.getElementById('License').classList.remove('ok-content');
+                    document.getElementById('License').classList.remove('bad-content');
+                    document.getElementById('License').classList.add('c404');
+                } else if(i===2){
+                    document.getElementById('crl_svr').classList.remove("ok");
+                    document.getElementById('crl_svr').classList.add("bad");
+                    document.getElementById('CRL').innerHTML= `${_msg[2]}`;
+                    document.getElementById('License').classList.remove('ok-content');
+                    document.getElementById('License').classList.remove('bad-content');
+                    document.getElementById('License').classList.add('c404');
                 }
             }
         }
     } else {
         console.log('cookie NOT found');
     }
+    var __ts = readCookie("log");
+    document.getElementById('timestamp').innerText = __ts;
 });
 
 $(document).ready(function(){
@@ -65,10 +109,14 @@ $(document).ready(function(){
 function externalURLHandler(url, widget_id, id, status, index){
     var xmlhttp = createXMLHttpRequestObject();
     xmlhttp.open('GET',url,true);
+    //xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "http://crl2.adobe.com/Adobe/FlashAccessIndividualizationCA.crl");
     xmlhttp.onloadend=function(){
     if (this.readyState==4){
         if(this.status==200){
-        document.getElementById(id).innerHTML= '<span style="font-weight:700; font-size:80px;">OK</span>';
+        document.getElementById(id).innerHTML= 'OK';
+        document.getElementById(id).classList.remove('bad-content');
+        document.getElementById(id).classList.remove('c404');
+        document.getElementById(id).classList.add('ok-content');
         document.getElementById(widget_id).classList.remove("bad");
         document.getElementById(widget_id).classList.add("ok");
         //$(widget_id).removeClass('bad').addClass('ok');
@@ -80,16 +128,22 @@ function externalURLHandler(url, widget_id, id, status, index){
         //$(widget_id).removeClass('ok').addClass('bad');
         document.getElementById(widget_id).classList.remove("ok");
         document.getElementById(widget_id).classList.add("bad");
-        document.getElementById(id).innerHTML= '<span style="font-weight:600; font-size:35px;">No Internet!</span>';
+        document.getElementById(id).classList.remove('ok-content');
+        document.getElementById(id).classList.remove('c404');
+        document.getElementById(id).classList.add('bad-content');
+        document.getElementById(id).innerHTML= '☎';
         status = false;
-        __msg = 'No Internet!';
+        __msg = '☎';
         msg[index] = __msg;
         statuses[index] = status; 
     } else if(this.status==404){
         //$(widget_id).removeClass('ok').addClass('bad');
         document.getElementById(widget_id).classList.remove("ok");
         document.getElementById(widget_id).classList.add("bad");
-        document.getElementById(id).innerHTML= '<span style="font-weight:700; font-size:75px;">404</span>';
+        document.getElementById(id).classList.remove('ok-content');
+        document.getElementById(id).classList.remove('bad-content');
+        document.getElementById(id).classList.add('c404');
+        document.getElementById(id).innerHTML= '404';
         status = false;
         __msg = '404';
         msg[index] = __msg;
@@ -98,6 +152,9 @@ function externalURLHandler(url, widget_id, id, status, index){
         //$(widget_id).removeClass('ok').addClass('bad');
         document.getElementById(widget_id).classList.remove("ok");
         document.getElementById(widget_id).classList.add("bad");
+        document.getElementById(id).classList.remove('ok-content');
+        document.getElementById(id).classList.remove('c404');
+        document.getElementById(id).classList.add('bad-content');
         document.getElementById(id).innerHTML= `ERROR! ${this.status}`;
         status = false;
         __msg = 'ERROR';
@@ -134,9 +191,16 @@ externalURLHandler("http://access.adobeprimetime.com/flashaccessserver/axs_prod/
 externalURLHandler("http://individualization.adobe.com/flashaccess/i15n/v5","indiv_svr", "Indiv", "indiv_status", 1);
 externalURLHandler("http://crl2.adobe.com/Adobe/FlashAccessIndividualizationCA.crl","crl_svr","CRL", "crl_status", 2);
 //statuses.join('|');
-//JSON.stringify(statuses)
-createCookie("status", JSON.stringify(statuses));
-createCookie("message", JSON.stringify(msg));
+var d = new Date();
+var log = d.toLocaleDateString().split('/')[1] + months[d.getMonth()] +" "+ d.toLocaleTimeString();
+document.getElementById('timestamp').innerText = log;
+createCookie("log", log);
+setCookies();
+}
+
+function setCookies() {
+    var n = setTimeout(function(){createCookie("status", JSON.stringify(statuses));
+    createCookie("message", JSON.stringify(msg));},2000);
 }
 
 function createCookie(name,value,days) {
